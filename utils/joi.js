@@ -27,6 +27,7 @@ const textMethod = (value, helpers) => {
 }
 
 const phoneNumberMethod = (value, helpers) => {
+  if (value.length === 0) return value;
   const phoneNumberValid = testPhoneNumber(value);
   if (!phoneNumberValid.valid) {
     return helpers.error('any.invalid');
@@ -38,7 +39,7 @@ const sendEmailSchema = Joi.object({
   from: Joi.string().custom(emailMethod).required(),
   name: Joi.string().custom(nameMethod).required(),
   text: Joi.string().custom(textMethod).required(),
-  phoneNumber: Joi.string().custom(phoneNumberMethod).required()
+  phoneNumber: Joi.string().custom(phoneNumberMethod)
 });
 
 module.exports.checkEmailReq = (req, res, next) => {
