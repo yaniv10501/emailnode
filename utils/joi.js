@@ -39,7 +39,7 @@ const sendEmailSchema = Joi.object({
   from: Joi.string().custom(emailMethod).required(),
   name: Joi.string().custom(nameMethod).required(),
   text: Joi.string().custom(textMethod).required(),
-  phoneNumber: Joi.string().custom(phoneNumberMethod).default(''),
+  phoneNumber: Joi.string().custom(phoneNumberMethod).allow(''),
 });
 
 module.exports.checkEmailReq = (req, res, next) => {
