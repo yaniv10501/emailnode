@@ -1,4 +1,5 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
+const logger = require("../utils/logger");
 
 module.exports.sendEmail = (req, res, next) => {
   const { MAIL_PROVIDER, MAIL_NAME, MAIL_PASS, MAIL_TO } = process.env;
@@ -19,13 +20,14 @@ module.exports.sendEmail = (req, res, next) => {
       text,
     };
 
-    transporter.sendMail(mailOptions, function (error, info) {
+    // eslint-disable-next-line prefer-arrow-callback
+    transporter.sendMail(mailOptions, function sendEmailCallback(error, info) {
       if (error) {
-        console.log(error);
+        logger.log(error);
         next(error);
       } else {
-        console.log('Email sent: ' + info.response);
-        res.send('Email sent');
+        logger.log(`Email sent: ${info.response}`);
+        res.send("Email sent");
       }
     });
   } catch (err) {

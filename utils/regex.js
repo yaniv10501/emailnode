@@ -18,7 +18,7 @@ module.exports.testPhoneNumber = (phoneNumber) => {
 };
 
 module.exports.testName = (name) => {
-  const pattern = /^[a-zA-Z]+$/;
+  const pattern = /^[a-zA-Z\s]+$/;
 
   return {
     valid: pattern.test(name),
