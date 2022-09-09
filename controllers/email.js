@@ -7,7 +7,7 @@ module.exports.sendEmail = async (req, res, next) => {
   try {
     const transporter = nodemailer.createTransport({
       service: MAIL_PROVIDER,
-      port: 456,
+      port: 465,
       secure: true,
       tls: true,
       requireTLS: true,
