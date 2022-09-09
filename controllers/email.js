@@ -8,9 +8,9 @@ module.exports.sendEmail = async (req, res, next) => {
     const transporter = nodemailer.createTransport({
       host: MAIL_PROVIDER,
       port: 587,
-      secure: true,
-      tls: true,
-      requireTLS: true,
+      tls: {
+        ciphers: "SSLv3",
+      },
       auth: {
         user: MAIL_NAME,
         pass: MAIL_PASS,
