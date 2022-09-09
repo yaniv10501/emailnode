@@ -9,6 +9,7 @@ module.exports.sendEmail = async (req, res, next) => {
       host: MAIL_PROVIDER,
       port: 587,
       secure: true,
+      tls: true,
       requireTLS: true,
       auth: {
         user: MAIL_NAME,
