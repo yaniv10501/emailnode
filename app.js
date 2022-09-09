@@ -14,7 +14,7 @@ const { checkEmailReq } = require("./utils/joi");
 
 const app = express();
 
-const { PORT = 3000, NODE_ENV = "development" } = process.env;
+const { PORT = 3030, NODE_ENV = "development" } = process.env;
 
 app.set("port", PORT);
 app.set("env", NODE_ENV);
