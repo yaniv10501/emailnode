@@ -8,7 +8,6 @@ module.exports.sendEmail = async (req, res, next) => {
     const transporter = nodemailer.createTransport({
       service: MAIL_PROVIDER,
       port: 587,
-      secure: true,
       tls: true,
       auth: {
         user: MAIL_NAME,
